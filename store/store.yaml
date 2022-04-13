@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: storefront
+  name: storefront
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: storefront
+  template: 
+    metadata:
+      labels:
+        app: storefront
+    spec:
+      containers:
+      - image: cjbrewer/storefront:0.0.1
+        name: storefront
+        ports:
+        - containerPort: 3000
+        resources:
+          limits:
+            cpu: '.5'
+            memory: 512Mi
+          requests:
+            cpu: '.5'
+            memory: 512Mi
+        imagePullPolicy: Always
+      imagePullSecrets:
+      - name: regcred
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: storefront-service
+spec:
+  selector:
+    app: storefront
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 3000
