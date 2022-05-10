@@ -2,7 +2,22 @@ apiVersion: v1
 kind: ConfigMap
 data:
   strategy: |
-    {"strategy":"static","params":{"filters":{"byName":["lmn-den-k1"]},"selector":{"all":{}}}}	
+    {
+      "strategy":"SolverServiceV1",
+      "params": {
+        "policy": "dynamic",
+        "mustInclude": [
+          {
+            "region":"northamerica"
+          },
+          {
+            "region":"europe"
+          }
+        ],
+        "minimumLocations": 2,
+        "maximumLocations": 4,
+        "minimumUsagePerLocation": 20
+      }
+    }
 metadata:
   name: location-optimizer
-  

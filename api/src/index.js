@@ -14,7 +14,9 @@ app.use('/', (req, res) => {
             'Chicken',
             'Beef',
             'Pork',
-            'Bean'
+            'Bean',
+            'Veggie',
+            "Shrimp"
         ],
     });
 });
