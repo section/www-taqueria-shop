@@ -15,7 +15,7 @@ spec:
         app: api
     spec:
       containers:
-      - image: cjbrewer/api:0.0.2
+      - image: cjbrewer/api:0.0.3
         name: api
         ports:
         - containerPort: 3001
