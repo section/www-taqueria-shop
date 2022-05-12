@@ -32,7 +32,7 @@ kubectl config use-context taqueria-shop
 
 ## Deploying the application
 
-Use the following command to deploy the application:
+Use the following command to deploy the application. Please note, for demonstration purposes, the `storefront` image is in a private registry and required authentincation with dockerhub.
 
 ```bash
 kubectl apply -f store/store.yaml \
